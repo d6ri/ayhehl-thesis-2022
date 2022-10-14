@@ -6,7 +6,10 @@ const IndexImg = props => {
 			<img
 				src={props.src}
 				alt={props.alt}
-				style={{ width: props.width, height: props.height }}
+				style={{
+					width: props.width,
+					height: props.height,
+				}}
 			/>
 		</div>
 	);
