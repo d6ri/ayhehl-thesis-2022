@@ -12,6 +12,7 @@ const MainNav = props => {
 				<span></span>
 			</button>
 			<Link to="/">
+				<img src="./EKKE.png" height="100px" />
 				<h1>EKKE Szakmai Gyakorlat Portál</h1>
 			</Link>
 			<nav></nav>
