@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import MainHeader from './MainHeader';
+import MainHeader from './MainHeader.js';
+import NavLinks from './NavLinks.js';
 
 const MainNav = props => {
 	return (
@@ -15,7 +16,9 @@ const MainNav = props => {
 				<img src="./EKKE.png" height="100px" />
 				<h1>EKKE Szakmai Gyakorlat Portál</h1>
 			</Link>
-			<nav></nav>
+			<nav>
+				<NavLinks />
+			</nav>
 		</MainHeader>
 	);
 };
