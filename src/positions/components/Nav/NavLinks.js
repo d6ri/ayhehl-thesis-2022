@@ -16,7 +16,7 @@ const NavLinks = props => {
 				<NavLink to="/">Új értékelés</NavLink>
 			</li>
 			<li>
-				<NavLink to="/">Bejelentkezés</NavLink>
+				<NavLink to="/login">Bejelentkezés</NavLink>
 			</li>
 		</ul>
 	);
