@@ -17,7 +17,7 @@ const PositionItem = props => {
 						widht="100px"
 						height="100px"
 					/>
-					<Link to={`/${props.wid}/${props.pid}`}>
+					<Link to={`/positions/${props.pid}`}>
 						<h2>{props.name}</h2>
 					</Link>
 				</div>

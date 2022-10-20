@@ -16,6 +16,7 @@ const PositionsList = props => {
 					name={position.name}
 					location={position.location}
 					department={position.department}
+					key={position.pid}
 				/>
 			))}
 		</ul>
