@@ -5,7 +5,6 @@ import { POSLIST } from '../../testData/positions';
 import { WORKPLIST } from '../../testData/workplaces';
 
 const Position = () => {
-	const wid = useParams().wid;
 	const pid = useParams().pid;
 
 	const posi = POSLIST.find(pos => pos.pid == pid);
