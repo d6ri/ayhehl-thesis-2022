@@ -22,12 +22,14 @@ const PositionItem = props => {
 					</Link>
 				</div>
 				<div className="positem__info">
-					<h3>
-						Cég neve:
-						{WORKPLIST.map(wp => {
-							if (wp.wid === props.wid) return ` ${wp.name}`;
-						})}
-					</h3>
+					<Link to={`/workplaces/${props.wid}`}>
+						<h3>
+							Cég neve:
+							{WORKPLIST.map(wp => {
+								if (wp.wid === props.wid) return ` ${wp.name}`;
+							})}
+						</h3>
+					</Link>
 					<h3>Terület: {props.department}</h3>
 					<h3>Munkavégzés helye: {props.location}</h3>
 					<button>Részletek</button>
