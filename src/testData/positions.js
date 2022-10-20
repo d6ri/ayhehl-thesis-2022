@@ -7,7 +7,7 @@ export const POSLIST = [
 		location: 'Eger',
 		description: 'Ez itt a pozíció leírása',
 		duration: 3,
-		contract: 'internship',
+		contract: 'határozott',
 		schedule: [20, 40],
 	},
 	{
@@ -18,7 +18,7 @@ export const POSLIST = [
 		location: 'Hatvan',
 		description: 'Ez itt a pozíció leírása',
 		duration: 3,
-		contract: 'internship',
+		contract: 'határozott',
 		schedule: [20, 40],
 	},
 	{
@@ -29,7 +29,7 @@ export const POSLIST = [
 		location: 'Miskolc',
 		description: 'Ez itt a pozíció leírása',
 		duration: 3,
-		contract: 'internship',
+		contract: 'határozott',
 		schedule: [20, 40],
 	},
 	{
@@ -40,7 +40,7 @@ export const POSLIST = [
 		location: 'Eger',
 		description: 'Ez itt a pozíció leírása',
 		duration: 12,
-		contract: 'trainee',
+		contract: 'határozott',
 		schedule: [20, 40],
 	},
 	{
@@ -51,7 +51,7 @@ export const POSLIST = [
 		location: 'Szolnok',
 		description: '',
 		duration: 6,
-		contract: 'internship',
+		contract: 'határozott',
 		schedule: [20, 40],
 	},
 	{
@@ -62,7 +62,7 @@ export const POSLIST = [
 		location: 'Budapest',
 		description: '',
 		duration: '',
-		contract: 'fulltime',
+		contract: 'határozatlan',
 		schedule: [40],
 	},
 ];
