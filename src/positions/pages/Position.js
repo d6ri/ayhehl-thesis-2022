@@ -1,17 +1,19 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import IndexImg from '../components/UI/IndexImg';
 import { POSLIST } from '../../testData/positions';
 import { WORKPLIST } from '../../testData/workplaces';
 
 const Position = () => {
+	const navigate = useNavigate();
 	const pid = useParams().pid;
-
 	const position = POSLIST.find(pos => pos.pid == pid);
 
 	return (
 		<div>
+			<button onClick={() => navigate(-1)}>Vissza</button>
+
 			<div>
 				<IndexImg
 					src={`/images/${position.wid}.jpg`}
