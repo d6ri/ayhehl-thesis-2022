@@ -3,9 +3,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Positions from './positions/pages/Positions.js';
 import Position from './positions/pages/Position.js';
-import Workplace from './positions/pages/Workplace.js';
-import Auth from './positions/pages/Auth.js';
-import NotFound from './positions/pages/NotFound.js';
+import Workplace from './workplaces/pages/Workplace.js';
+import Auth from './shared/pages/Auth.js';
+import NotFound from './shared/pages/NotFound.js';
 import MainNav from './positions/components/Nav/MainNav.js';
 
 const App = () => {

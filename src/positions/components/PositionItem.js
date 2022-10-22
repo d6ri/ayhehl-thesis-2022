@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import IndexImg from './UI/IndexImg.js';
-import Card from './UI/Card.js';
-import Button from './FormElements/Button.js';
+import IndexImg from '../../shared/components//UI/IndexImg.js';
+import Card from '../../shared/components//UI/Card.js';
+import Button from '../../shared/components/FormElements/Button.js';
 import { WORKPLIST } from '../../testData/workplaces.js';
 import './PositionItem.css';
 
