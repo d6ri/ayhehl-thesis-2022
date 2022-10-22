@@ -7,11 +7,6 @@ import NavLinks from './NavLinks.js';
 const MainNav = props => {
 	return (
 		<MainHeader>
-			<button>
-				<span></span>
-				<span></span>
-				<span></span>
-			</button>
 			<Link to="/">
 				<img src="./EKKE.png" height="100px" />
 				<h1>EKKE Szakmai Gyakorlat Portál</h1>

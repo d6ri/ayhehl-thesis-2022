@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import IndexImg from './UI/IndexImg.js';
 import Card from './UI/Card.js';
+import Button from './FormElements/Button.js';
 import { WORKPLIST } from '../../testData/workplaces.js';
 import './PositionItem.css';
 
@@ -32,7 +33,7 @@ const PositionItem = props => {
 					</Link>
 					<h3>Terület: {props.department}</h3>
 					<h3>Munkavégzés helye: {props.location}</h3>
-					<button>Részletek</button>
+					<Button to={`/positions/${props.pid}`}>Részletek</Button>
 				</div>
 			</Card>
 		</li>
