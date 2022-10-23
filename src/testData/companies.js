@@ -1,6 +1,6 @@
-export const WORKPLIST = [
+export const COMPLIST = [
 	{
-		wid: 1,
+		cid: 1,
 		name: 'Robert Bosch Kft.',
 		industry: ['Ipari'],
 		size: 'nagyvállalat',
@@ -9,7 +9,7 @@ export const WORKPLIST = [
 		desc: '',
 	},
 	{
-		wid: 2,
+		cid: 2,
 		name: 'ZF Hungária Kft.',
 		industry: ['Ipari', 'Technológiai'],
 		size: 'nagyvállalat',
@@ -18,7 +18,7 @@ export const WORKPLIST = [
 		desc: '',
 	},
 	{
-		wid: 3,
+		cid: 3,
 		name: 'OTP Bank Nyrt.',
 		industry: ['Pénzügyi'],
 		size: 'nagyvállalat',

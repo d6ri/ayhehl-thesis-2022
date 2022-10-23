@@ -12,7 +12,7 @@ const PositionsList = props => {
 			{props.positions.map(position => (
 				<PositionItem
 					pid={position.pid}
-					wid={position.wid}
+					cid={position.cid}
 					name={position.name}
 					location={position.location}
 					department={position.department}

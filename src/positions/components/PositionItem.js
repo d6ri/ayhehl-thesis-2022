@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import IndexImg from '../../shared/components//UI/IndexImg.js';
 import Card from '../../shared/components//UI/Card.js';
 import Button from '../../shared/components/FormElements/Button.js';
-import { WORKPLIST } from '../../testData/workplaces.js';
+import { COMPLIST } from '../../testData/companies.js';
 import './PositionItem.css';
 
 const PositionItem = props => {
@@ -13,8 +13,8 @@ const PositionItem = props => {
 			<Card>
 				<div className="positem__head">
 					<IndexImg
-						src={`/images/${props.wid}.jpg`}
-						alt={props.wid}
+						src={`/images/${props.cid}.jpg`}
+						alt={props.cid}
 						widht="100px"
 						height="100px"
 					/>
@@ -23,14 +23,14 @@ const PositionItem = props => {
 					</Link>
 				</div>
 				<div className="positem__info">
-					<Link to={`/workplaces/${props.wid}`}>
-						<h3>
-							Cég neve:
-							{WORKPLIST.map(wp => {
-								if (wp.wid === props.wid) return ` ${wp.name}`;
-							})}
-						</h3>
-					</Link>
+					<h3>
+						Cég neve:
+						{COMPLIST.map(comp => {
+							if (comp.cid === props.cid)
+								return <Link to={`/companies/${props.cid}`}> {comp.name}</Link>;
+						})}
+					</h3>
+
 					<h3>Terület: {props.department}</h3>
 					<h3>Munkavégzés helye: {props.location}</h3>
 					<Button to={`/positions/${props.pid}`}>Részletek</Button>

@@ -2,19 +2,19 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 import { POSLIST } from '../../testData/positions';
-import { WORKPLIST } from '../../testData/workplaces';
+import { COMPLIST } from '../../testData/companies';
 
-const Workplace = () => {
+const Company = () => {
 	const navigate = useNavigate();
-	const wid = useParams().wid;
-	const workplace = WORKPLIST.find(wp => wp.wid == wid);
+	const cid = useParams().cid;
+	const company = COMPLIST.find(comp => comp.cid.toString() === cid);
 
 	return (
 		<div>
 			<button onClick={() => navigate(-1)}>Vissza</button>
-			{workplace.name}
+			{company.name}
 		</div>
 	);
 };
 
-export default Workplace;
+export default Company;

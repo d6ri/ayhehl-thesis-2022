@@ -1,7 +1,7 @@
 export const POSLIST = [
 	{
 		pid: 1,
-		wid: 1,
+		cid: 1,
 		name: 'Kontrolling gyakornok',
 		department: 'Gazdasági',
 		location: 'Eger',
@@ -12,7 +12,7 @@ export const POSLIST = [
 	},
 	{
 		pid: 2,
-		wid: 1,
+		cid: 1,
 		name: 'AutoCad tervező gyakornok',
 		department: 'Mérnöki',
 		location: 'Hatvan',
@@ -23,7 +23,7 @@ export const POSLIST = [
 	},
 	{
 		pid: 3,
-		wid: 1,
+		cid: 1,
 		name: 'Logisztikai gyakornok',
 		department: 'Gazdasági',
 		location: 'Miskolc',
@@ -34,7 +34,7 @@ export const POSLIST = [
 	},
 	{
 		pid: 4,
-		wid: 2,
+		cid: 2,
 		name: 'IT gyakornok',
 		department: 'Informatikai',
 		location: 'Eger',
@@ -45,7 +45,7 @@ export const POSLIST = [
 	},
 	{
 		pid: 5,
-		wid: 3,
+		cid: 3,
 		name: 'Szakmai gyakorlatos',
 		department: 'Gazdasági',
 		location: 'Szolnok',
@@ -56,7 +56,7 @@ export const POSLIST = [
 	},
 	{
 		pid: 6,
-		wid: 3,
+		cid: 3,
 		name: 'Junior rendszerszervező',
 		department: 'Informatikai',
 		location: 'Budapest',
