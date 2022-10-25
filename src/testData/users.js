@@ -1,4 +1,4 @@
 export const USERS = [
-	{ id: 'ayhehl', name: 'Jenei Dóra' },
-	{ id: 'xyzxyz', name: 'Teszt Elek' },
+	{ uid: 'ayhehl', name: 'Jenei Dóra' },
+	{ uid: 'xyzxyz', name: 'Teszt Elek' },
 ];

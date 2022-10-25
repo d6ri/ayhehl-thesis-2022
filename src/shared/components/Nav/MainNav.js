@@ -9,7 +9,7 @@ const MainNav = props => {
 		<MainHeader>
 			<Link to="/">
 				<img src="./EKKE.png" height="100px" alt="EKKE" />
-				<h1>EKKE Szakmai Gyakorlat Portál</h1>
+				<h1>EKKE Szakmai Gyakorlati Portál</h1>
 			</Link>
 			<nav>
 				<NavLinks />
