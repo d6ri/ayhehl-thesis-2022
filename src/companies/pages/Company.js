@@ -1,7 +1,6 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-import { POSLIST } from '../../testData/positions';
 import { COMPLIST } from '../../testData/companies';
 
 const Company = () => {

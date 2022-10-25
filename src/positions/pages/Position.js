@@ -9,6 +9,7 @@ const Position = () => {
 	const navigate = useNavigate();
 	const pid = useParams().pid;
 	const position = POSLIST.find(pos => pos.pid.toString() === pid);
+	const company = COMPLIST.find(comp => comp.cid === position.cid);
 
 	return (
 		<div>
@@ -26,12 +27,7 @@ const Position = () => {
 			<div>
 				<h3>
 					Cég neve:
-					{COMPLIST.map(comp => {
-						if (comp.cid === position.cid)
-							return (
-								<Link to={`/companies/${position.cid}`}> {comp.name}</Link>
-							);
-					})}
+					{<Link to={`/companies/${position.cid}`}> {company.name}</Link>}
 				</h3>
 				<h3>Terület: {position.department}</h3>
 				<h3>Munkavégzés helye: {position.location}</h3>

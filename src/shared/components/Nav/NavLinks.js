@@ -10,10 +10,10 @@ const NavLinks = props => {
 				</NavLink>
 			</li>
 			<li>
-				<NavLink to="/workplaces">Cégek</NavLink>
+				<NavLink to="/companies">Cégek</NavLink>
 			</li>
 			<li>
-				<NavLink to="/">Új értékelés</NavLink>
+				<NavLink to="/review">Új értékelés</NavLink>
 			</li>
 			<li>
 				<NavLink to="/login">Bejelentkezés</NavLink>

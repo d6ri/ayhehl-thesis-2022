@@ -1,5 +1,7 @@
 import React from 'react';
 
+import CompanyItem from './CompanyItem';
+
 const CompanyList = props => {
 	if (props.companies.length === 0) {
 		return <div>Jelenleg az adatbázisban nem szerepelnek cégek.</div>;
@@ -7,14 +9,13 @@ const CompanyList = props => {
 
 	return (
 		<ul>
-			{props.companies.map(position => (
-				<PositionItem
-					pid={position.pid}
-					wid={position.wid}
-					name={position.name}
-					location={position.location}
-					department={position.department}
-					key={position.pid}
+			{props.companies.map(company => (
+				<CompanyItem
+					cid={company.cid}
+					name={company.name}
+					industry={company.industry}
+					headquarters={company.headquarters}
+					key={company.cid}
 				/>
 			))}
 		</ul>
