@@ -5,7 +5,7 @@ import Card from '../../shared/components/UI/Card';
 import IndexImg from '../../shared/components/UI/IndexImg';
 import Button from '../../shared/components/FormElements/Button';
 
-const CompanyItem = ({ cid, name, industry, headquarters }) => {
+const CompanyItem = ({ cid, name, industry, headquarters, size }) => {
 	return (
 		<li>
 			<Card>
@@ -21,11 +21,9 @@ const CompanyItem = ({ cid, name, industry, headquarters }) => {
 					</Link>
 				</div>
 				<div className="positem__info">
-					<h3>
-						Cég neve: <Link to={`/companies/${cid}`}> {name} </Link>
-					</h3>
 					<h3>Iparág: {industry}</h3>
 					<h3>Székhelye: {headquarters}</h3>
+					<h3>Mérete: {size}</h3>
 					<Button to={`/companies/${cid}`}>Részletek</Button>
 				</div>
 			</Card>

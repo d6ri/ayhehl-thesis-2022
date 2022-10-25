@@ -15,6 +15,7 @@ const CompanyList = props => {
 					name={company.name}
 					industry={company.industry}
 					headquarters={company.headquarters}
+					size={company.size}
 					key={company.cid}
 				/>
 			))}

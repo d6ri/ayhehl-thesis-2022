@@ -31,9 +31,19 @@ const Position = () => {
 				</h3>
 				<h3>Terület: {position.department}</h3>
 				<h3>Munkavégzés helye: {position.location}</h3>
-				<h3>Szerződés típusa: {position.contract}</h3>
-				<h3>Munkaviszony időtartama: {position.duration}</h3>
-				<h3>Munkaórák: {position.schedule} / hét</h3>
+				<h3>Szerződés típusa: {position.contract} idejű</h3>
+				<h3>
+					{position.duration === ''
+						? ''
+						: `Munkaviszony időtartama: ${position.duration} hónap`}
+				</h3>
+				<h3>
+					Munkaórák:{' '}
+					{position.schedule.length > 1
+						? `${position.schedule[0]}-${position.schedule[1]} `
+						: `${position.schedule} `}
+					óra / hét
+				</h3>
 			</div>
 			<div>
 				<h3>Leírás</h3>
