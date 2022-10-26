@@ -1,10 +1,14 @@
 import React from 'react';
 
 import PositionItem from './PositionItem.js';
-import { RefineSearch } from '../../shared/SharedFunctions.js';
+import { RefinePositionSearch } from '../../shared/SharedFunctions.js';
 
-const PositionsList = ({ searchText, positionsList }) => {
-	const filteredData = RefineSearch(positionsList, searchText);
+const PositionsList = ({ searchText, filterDepartment, positionsList }) => {
+	const filteredData = RefinePositionSearch(
+		positionsList,
+		searchText,
+		filterDepartment
+	);
 
 	if (positionsList.length === 0) {
 		return <div>Nincsenek nyitott gyakornoki pozíciók.</div>;
