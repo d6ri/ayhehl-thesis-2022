@@ -1,15 +1,18 @@
 import React from 'react';
 
 import PositionItem from './PositionItem.js';
+import { RefineSearch } from '../../shared/SharedFunctions.js';
 
-const PositionsList = props => {
-	if (props.positions.length === 0) {
+const PositionsList = ({ searchText, positionsList }) => {
+	const filteredData = RefineSearch(positionsList, searchText);
+
+	if (positionsList.length === 0) {
 		return <div>Nincsenek nyitott gyakornoki pozíciók.</div>;
 	}
 
 	return (
 		<ul>
-			{props.positions.map(position => (
+			{filteredData.map(position => (
 				<PositionItem
 					pid={position.pid}
 					cid={position.cid}
