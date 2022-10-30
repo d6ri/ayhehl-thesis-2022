@@ -5,3 +5,7 @@ li {
 .positem__head {
 	text-align: center;
 }
+
+.position__attr {
+	display: inline;
+}

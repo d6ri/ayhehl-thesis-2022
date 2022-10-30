@@ -27,7 +27,6 @@ const PositionItem = ({ pid, cid, name, location, department }) => {
 					<h3>
 						Cég neve: <Link to={`/companies/${cid}`}> {company.name}</Link>
 					</h3>
-
 					<h3>Terület: {department}</h3>
 					<h3>Munkavégzés helye: {location}</h3>
 					<Button to={`/positions/${pid}`}>Részletek</Button>

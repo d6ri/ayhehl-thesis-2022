@@ -21,9 +21,17 @@ const CompanyItem = ({ cid, name, industry, headquarters, size }) => {
 					</Link>
 				</div>
 				<div className="positem__info">
-					<h3>Iparág: {industry}</h3>
-					<h3>Székhelye: {headquarters}</h3>
-					<h3>Mérete: {size}</h3>
+					<h3>Iparág:</h3>
+					<span>
+						{industry.length > 1
+							? industry.map(e => <span>{e} </span>)
+							: industry}
+					</span>
+					<h3>Székhelye:</h3>
+					<span>{headquarters}</span>
+					<h3>Mérete:</h3>
+					<span>{size}</span>
+					<br />
 					<Button to={`/companies/${cid}`}>Részletek</Button>
 				</div>
 			</Card>
