@@ -10,6 +10,9 @@ const inputReducer = (state, action) => {
 				value: action.value,
 				isValid: validate(action.value, action.validators),
 			};
+		case 'TOUCH':
+			return {...state,
+			isTouched: true}
 		default:
 			return state;
 	}
@@ -19,6 +22,7 @@ const Input = props => {
 	const [inputState, dispatch] = useReducer(inputReducer, {
 		value: '',
 		isValid: false,
+		isTouched: false
 	});
 
 	const changeHandler = event => {
@@ -26,6 +30,12 @@ const Input = props => {
 			type: 'CHANGE',
 			value: event.target.value,
 			validators: props.validators,
+		});
+	};
+
+	const touchHandler = () => {
+		dispatch({
+			type: 'TOUCH',
 		});
 	};
 
@@ -37,6 +47,7 @@ const Input = props => {
 				placeholder={props.placeholder}
 				value={inputState.value}
 				onChange={changeHandler}
+				onBlur={touchHandler}
 			/>
 		) : (
 			<textarea
@@ -44,17 +55,18 @@ const Input = props => {
 				rows={props.rows || 5}
 				value={inputState.value}
 				onChange={changeHandler}
+				onBlur={touchHandler}
 			/>
 		);
 	return (
 		<div
 			className={`form-control ${
-				!inputState.isValid && 'form-control--invalid'
+				!inputState.isValid && inputState.isTouched && 'form-control--invalid'
 			}`}
 		>
 			<label htmlFor={props.id}>{props.label}</label>
 			{element}
-			{!inputState.isValid && <p>{props.errorText}</p>}
+			{!inputState.isValid && inputState.isTouched && <p>{props.errorText}</p>}
 		</div>
 	);
 };
