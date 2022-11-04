@@ -13,7 +13,7 @@ const NavLinks = props => {
 				<NavLink to="/companies">Cégek</NavLink>
 			</li>
 			<li>
-				<NavLink to="/review">Új értékelés</NavLink>
+				<NavLink to="/newreview">Új értékelés</NavLink>
 			</li>
 			<li>
 				<NavLink to="/login">Bejelentkezés</NavLink>

@@ -8,6 +8,7 @@ import Companies from './companies/pages/Companies.js';
 import Auth from './shared/pages/Auth.js';
 import NotFound from './shared/pages/NotFound.js';
 import MainNav from './shared/components/Nav/MainNav.js';
+import NewReview from './reviews/pages/NewReview.js';
 
 const App = () => {
 	return (
@@ -21,6 +22,7 @@ const App = () => {
 					<Route path="/companies/:cid" element={<Company />} />
 					<Route path="/login" element={<Auth />} />
 					<Route path="*" element={<NotFound />} />
+					<Route path="/newreview" element={<NewReview />}  />
 				</Routes>
 			</main>
 		</Router>

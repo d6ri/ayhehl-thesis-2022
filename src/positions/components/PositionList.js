@@ -1,7 +1,7 @@
 import React from 'react';
 
 import PositionItem from './PositionItem.js';
-import { RefinePositionSearch } from '../../shared/SharedFunctions.js';
+import { RefinePositionSearch } from '../../shared/sharedFunctions.js';
 
 const PositionsList = ({ searchText, filterDepartment, positionsList }) => {
 	const filteredData = RefinePositionSearch(
