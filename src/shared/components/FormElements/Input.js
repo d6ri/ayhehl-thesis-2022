@@ -5,7 +5,7 @@ import { validate } from '../../validators';
 const inputReducer = (state, action) => {
 	switch (action.type) {
 		case 'CHANGE':
-			const validation = validate(action.value, action.validators);
+			let validation = validate(action.value, action.validators);
 			return {
 				...state,
 				value: action.value,
@@ -35,9 +35,14 @@ const Input = props => {
 		});
 	};
 
-	const touchHandler = () => {
+	const touchHandler = (event) => {
 		dispatch({
 			type: 'TOUCH',
+		});
+		dispatch({
+			type: 'CHANGE',
+			value: event.target.value,
+			validators: props.validators,
 		});
 	};
 
@@ -68,9 +73,8 @@ const Input = props => {
 		>
 			<label htmlFor={props.id}>{props.label}</label>
 			{element}
-			{!inputState.isValid && inputState.isTouched && (
-				<p>{inputState.errorText}</p>
-			)}
+				<p>{!inputState.isValid && inputState.isTouched && inputState.errorText}</p>
+			
 		</div>
 	);
 };
