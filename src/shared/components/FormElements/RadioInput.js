@@ -1,20 +1,15 @@
 import React from "react";
 
-const RadioInput = (props) => {
+const RadioInput = ({ inputs, legend, name }) => {
   return (
     <fieldset>
-      <legend>{props.legend}</legend>
-      {props.inputs.map((input, i) => {
+      <legend>{legend}</legend>
+      {inputs.map((input, i) => {
+        const id = `${name}-${input.toLowerCase()}`;
         return (
-          <div key={`${props.name}-${i}`}>
-            <input
-              type="radio"
-              value={input}
-              name={props.name}
-              id={`${props.name}-${input.toLowerCase()}`}
-              required
-            />
-            <label htmlFor={`${props.name}-${input.toLowerCase()}`}>{input}</label>
+          <div key={`${name}-${i}`}>
+            <input type="radio" value={input} name={name} id={id} required />
+            <label htmlFor={id}>{input}</label>
           </div>
         );
       })}
