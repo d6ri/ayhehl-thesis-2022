@@ -7,7 +7,7 @@ import StarRating from "../../shared/components/FormElements/StarRating";
 import RadioInput from "../../shared/components/FormElements/RadioInput";
 import { VALIDATOR_EMPTY, VALIDATOR_MINLEN } from "../../shared/validators";
 import { POSLIST } from "../../testData/positions.js";
-import { departmentOptions as departmentsQuery } from "../../testData/queries";
+import { departmentOptions as departmentsQuery, starRatingValues } from "../../testData/queries";
 
 const formReducer = (state, action) => {
   switch (action.type) {
@@ -46,14 +46,6 @@ const formReducer = (state, action) => {
 const NewReview = () => {
   const departmentOptions = departmentsQuery();
 
-  const starRatingValues = {
-    1: "Egyáltalán nem",
-    2: "Kevésbé",
-    3: "Bizonyos esetekben",
-    4: "Nagyrészben igen",
-    5: "Teljes mértékben",
-  };
-
   const [formState, dispatch] = useReducer(formReducer, {
     inputs: {
       position: { value: "", isValid: false },
@@ -78,12 +70,11 @@ const NewReview = () => {
     dispatch({ type: "SUBMITTED" });
     if (formState.isFormValid) {
       document.getElementById("addNewReviewForm").reset();
-      window.alert("Sikeres!");
+      window.alert("Értékelés sikeresen rögzítve!");
       window.location.reload();
     }
   };
 
-  console.log(departmentOptions);
   return (
     <form onSubmit={formSubmitHandler} id="addNewReviewForm">
       <Input
