@@ -7,7 +7,11 @@ import StarRating from "../../shared/components/FormElements/StarRating";
 import RadioInput from "../../shared/components/FormElements/RadioInput";
 import { VALIDATOR_EMPTY, VALIDATOR_MINLEN } from "../../shared/validators";
 import { POSLIST } from "../../testData/positions.js";
-import { departmentOptions as departmentsQuery, starRatingValues } from "../../testData/queries";
+import {
+  departmentOptions as departmentsQuery,
+  starRatingValues,
+  companiesOptions as companiesQuery,
+} from "../../testData/queries";
 
 const formReducer = (state, action) => {
   switch (action.type) {
@@ -45,6 +49,7 @@ const formReducer = (state, action) => {
 
 const NewReview = () => {
   const departmentOptions = departmentsQuery();
+  const companiesOptions = companiesQuery();
 
   const [formState, dispatch] = useReducer(formReducer, {
     inputs: {
@@ -77,6 +82,16 @@ const NewReview = () => {
 
   return (
     <form onSubmit={formSubmitHandler} id="addNewReviewForm">
+      <Select
+        id="companyName"
+        label="Melyik cégnél töltötted a szakmai gyakorlatod? ****"
+        options={companiesOptions}
+        defaultOption="Válaszd ki a céget"
+        validators={[VALIDATOR_EMPTY()]}
+        onInput={inputHandler}
+        isFormSubmitted={formState.isSubmitted}
+        required={true}
+      />
       <Input
         id="position"
         elementType="input"

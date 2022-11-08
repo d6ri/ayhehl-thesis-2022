@@ -1,4 +1,5 @@
 import { POSLIST } from "./positions";
+import { COMPLIST } from "./companies";
 
 export const departmentOptions = () => {
   const departments = [];
@@ -9,6 +10,17 @@ export const departmentOptions = () => {
     }
   });
   return departments;
+};
+
+export const companiesOptions = () => {
+  const companies = [];
+  COMPLIST.forEach((e) => {
+    if (!companies.includes(e.name)) {
+      companies.push(e.name);
+      companies.sort();
+    }
+  });
+  return companies;
 };
 
 export const starRatingValues = {
