@@ -1,44 +1,37 @@
 import React, { useReducer, useEffect } from "react";
 
-import { validate } from "../../validators";
-
 const inputReducer = (state, action) => {
   switch (action.type) {
     case "CHANGE":
-      let validation = validate(action.value, action.validators);
       return {
         ...state,
         value: action.value,
-        isValid: validation.isValid,
-        errorText: validation.errorText,
+        isValid: true,
+        isTouched: true,
       };
-    case "TOUCH":
-      return { ...state, isTouched: true };
     default:
       return state;
   }
 };
 
-const RadioInput = ({ id, inputs, legend, name, validators, onInput }) => {
+const RadioInput = ({
+  id,
+  inputs,
+  legend,
+  name,
+  validators,
+  onInput,
+  isFormSubmitted,
+  required,
+}) => {
+  const isRequired = required ? true : false;
   const [inputState, dispatch] = useReducer(inputReducer, {
     value: "",
-    isValid: false,
+    isValid: !isRequired,
     isTouched: false,
-    errorText: "",
   });
 
   const changeHandler = (event) => {
-    dispatch({
-      type: "CHANGE",
-      value: event.target.value,
-      validators: validators,
-    });
-  };
-
-  const touchHandler = (event) => {
-    dispatch({
-      type: "TOUCH",
-    });
     dispatch({
       type: "CHANGE",
       value: event.target.value,
@@ -59,19 +52,17 @@ const RadioInput = ({ id, inputs, legend, name, validators, onInput }) => {
         const radioId = `${name}-${input.toLowerCase()}`;
         return (
           <div key={`${name}-${i}`}>
-            <input
-              type="radio"
-              value={input}
-              name={name}
-              id={radioId}
-              onChange={changeHandler}
-              onBlur={touchHandler}
-            />
+            <input type="radio" value={input} name={name} id={radioId} onChange={changeHandler} />
             <label htmlFor={radioId}>{input}</label>
           </div>
         );
       })}
-      <p>{!inputState.isValid && inputState.errorText}</p>
+      <p>
+        {!inputState.isValid &&
+          !inputState.isTouched &&
+          isFormSubmitted &&
+          "Kötelezően kitöltendő mező!"}
+      </p>
     </fieldset>
   );
 };

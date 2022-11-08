@@ -19,10 +19,20 @@ const inputReducer = (state, action) => {
   }
 };
 
-const Select = ({ id, label, options, validators, onInput }) => {
+const Select = ({
+  id,
+  label,
+  options,
+  defaultOption,
+  validators,
+  onInput,
+  isFormSubmitted,
+  required,
+}) => {
+  const isRequired = required ? true : false;
   const [inputState, dispatch] = useReducer(inputReducer, {
     value: "",
-    isValid: false,
+    isValid: !isRequired,
     isTouched: false,
     errorText: "",
   });
@@ -62,7 +72,7 @@ const Select = ({ id, label, options, validators, onInput }) => {
         value={inputState.value}
       >
         <option value="" disabled>
-          Válassz egy területet
+          {defaultOption}
         </option>
         {options.map((e) => (
           <option value={e} key={e}>
@@ -70,7 +80,13 @@ const Select = ({ id, label, options, validators, onInput }) => {
           </option>
         ))}
       </select>
-      <p>{!inputState.isValid && inputState.isTouched && inputState.errorText}</p>
+      <p>
+        {(!inputState.isValid && inputState.isTouched && inputState.errorText) ||
+          (!inputState.isValid &&
+            !inputState.isTouched &&
+            isFormSubmitted &&
+            "Kötelezően kitöltendő mező, ne hagyd üresen!")}
+      </p>
     </div>
   );
 };

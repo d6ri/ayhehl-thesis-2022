@@ -95,7 +95,7 @@ const Input = ({
           (!inputState.isValid &&
             !inputState.isTouched &&
             isFormSubmitted &&
-            "Kötelezően kitöltendő mező!")}
+            "Kötelezően kitöltendő mező, ne hagyd üresen!")}
       </p>
     </div>
   );
