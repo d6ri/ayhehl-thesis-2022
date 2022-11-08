@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 
 import { validate } from "../../validators";
 
@@ -19,10 +19,21 @@ const inputReducer = (state, action) => {
   }
 };
 
-const Input = (props) => {
+const Input = ({
+  id,
+  elementType,
+  type,
+  label,
+  validators,
+  placeholder,
+  rows,
+  onInput,
+  isFormSubmitted,
+}) => {
+  const hasValidator = validators.length > 0 ? true : false;
   const [inputState, dispatch] = useReducer(inputReducer, {
     value: "",
-    isValid: false,
+    isValid: !hasValidator,
     isTouched: false,
     errorText: "",
   });
@@ -31,7 +42,7 @@ const Input = (props) => {
     dispatch({
       type: "CHANGE",
       value: event.target.value,
-      validators: props.validators,
+      validators: validators,
     });
   };
 
@@ -42,24 +53,30 @@ const Input = (props) => {
     dispatch({
       type: "CHANGE",
       value: event.target.value,
-      validators: props.validators,
+      validators: validators,
     });
   };
 
+  const { value, isValid } = inputState;
+
+  useEffect(() => {
+    onInput(id, value, isValid);
+  }, [value, isValid, id, onInput]);
+
   const element =
-    props.element === "input" ? (
+    elementType === "input" ? (
       <input
-        id={props.id}
-        type={props.type}
-        placeholder={props.placeholder}
+        id={id}
+        type={type}
+        placeholder={placeholder}
         value={inputState.value}
         onChange={changeHandler}
         onBlur={touchHandler}
       />
     ) : (
       <textarea
-        id={props.id}
-        rows={props.rows || 5}
+        id={id}
+        rows={rows || 5}
         value={inputState.value}
         onChange={changeHandler}
         onBlur={touchHandler}
@@ -71,10 +88,14 @@ const Input = (props) => {
         !inputState.isValid && inputState.isTouched && "form-control--invalid"
       }`}
     >
-      <label htmlFor={props.id}>{props.label}</label>
+      <label htmlFor={id}>{label}</label>
       {element}
       <p>
-        {!inputState.isValid && inputState.isTouched && inputState.errorText}
+        {(!inputState.isValid && inputState.isTouched && inputState.errorText) ||
+          (!inputState.isValid &&
+            !inputState.isTouched &&
+            isFormSubmitted &&
+            "Kötelezően kitöltendő mező!")}
       </p>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 
 import { validate } from "../../validators";
 
@@ -19,7 +19,7 @@ const inputReducer = (state, action) => {
   }
 };
 
-const Select = ({ id, label, options, validators }) => {
+const Select = ({ id, label, options, validators, onInput }) => {
   const [inputState, dispatch] = useReducer(inputReducer, {
     value: "",
     isValid: false,
@@ -46,6 +46,11 @@ const Select = ({ id, label, options, validators }) => {
     });
   };
 
+  const { value, isValid } = inputState;
+  useEffect(() => {
+    onInput(id, value, isValid);
+  }, [id, value, isValid, onInput]);
+
   return (
     <div>
       <label htmlFor={id}>{label}</label>
@@ -65,9 +70,7 @@ const Select = ({ id, label, options, validators }) => {
           </option>
         ))}
       </select>
-      <p>
-        {!inputState.isValid && inputState.isTouched && inputState.errorText}
-      </p>
+      <p>{!inputState.isValid && inputState.isTouched && inputState.errorText}</p>
     </div>
   );
 };
