@@ -2,7 +2,7 @@ import { React, useState } from "react";
 
 import { POSLIST } from "../../testData/positions";
 import PositionsList from "../components/PositionList";
-import { departmentOptions as departmentsQuery } from "../../testData/queries";
+import { departmentOptions as departmentsQuery } from "../../shared/queries";
 
 const Positions = () => {
   const departmentOptions = departmentsQuery();
@@ -29,18 +29,18 @@ const Positions = () => {
 
   return (
     <div>
-      <div className="searchBar">
+      <div className='searchBar'>
         <input
           onChange={inputTextHandler}
-          defaultValue=""
-          type="text"
-          placeholder="Keresés a pozíciók között"
-          label="Search"
+          defaultValue=''
+          type='text'
+          placeholder='Keresés a pozíciók között'
+          label='Search'
         />
         <div>
           {departmentOptions.map((dep) => (
             <button
-              name="department"
+              name='department'
               value={dep}
               onClick={inputDepHandler}
               key={dep}

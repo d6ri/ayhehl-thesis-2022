@@ -71,14 +71,24 @@ const Select = ({
         onBlur={touchHandler}
         value={inputState.value}
       >
-        <option value="" disabled>
+        <option value='' disabled>
           {defaultOption}
         </option>
-        {options.map((e) => (
-          <option value={e} key={e}>
-            {e}
-          </option>
-        ))}
+        {options.map((e) => {
+          if (typeof e === "object") {
+            return (
+              <option value={e["id"]} key={e["id"]}>
+                {e["value"]}
+              </option>
+            );
+          } else if (typeof e === "string") {
+            return (
+              <option value={e} key={e}>
+                {e}
+              </option>
+            );
+          }
+        })}
       </select>
       <p>
         {(!inputState.isValid && inputState.isTouched && inputState.errorText) ||

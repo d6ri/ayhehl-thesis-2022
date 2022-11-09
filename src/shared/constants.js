@@ -7,7 +7,7 @@ export const starRatingValues = {
 };
 
 export const reviewFormInitialInputs = {
-  companyName: { value: "", isValid: false },
+  companyId: { value: "", isValid: false },
   position: { value: "", isValid: false },
   department: { value: "", isValid: false },
   tasks: { value: "", isValid: false },

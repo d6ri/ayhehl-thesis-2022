@@ -1,6 +1,7 @@
 export const REVIEWSLIST = [
   {
     uid: "ayhehl",
+    rid: 1,
     date: "2022-03-12",
     formValues: {
       companyName: "Robert Bosch Kft.",
@@ -19,6 +20,7 @@ export const REVIEWSLIST = [
       suggestions: "",
     },
     uid: "test00",
+    rid: 2,
     date: "2021-11-05",
     formValues: {
       companyName: "ZF Hungária Kft.",

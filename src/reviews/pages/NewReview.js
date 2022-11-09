@@ -9,8 +9,8 @@ import { VALIDATOR_EMPTY, VALIDATOR_MINLEN } from "../../shared/validators";
 import {
   departmentOptions as departmentsQuery,
   companiesOptions as companiesQuery,
-} from "../../testData/queries";
-import { reviewFormInitialInputs, starRatingValues } from "../../testData/constants";
+} from "../../shared/queries";
+import { reviewFormInitialInputs, starRatingValues } from "../../shared/constants";
 
 const formReducer = (state, action) => {
   switch (action.type) {
@@ -75,7 +75,7 @@ const NewReview = () => {
   return (
     <form onSubmit={formSubmitHandler} id='addNewReviewForm'>
       <Select
-        id='companyName'
+        id='companyId'
         label='Melyik cégnél töltötted a szakmai gyakorlatod? *'
         options={companiesOptions}
         defaultOption='Válaszd ki a céget'

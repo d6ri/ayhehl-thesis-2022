@@ -6,6 +6,8 @@ import IndexImg from "../../shared/components/UI/IndexImg";
 import CompanyAbout from "../components/CompanyAbout.js";
 import CompaniesPos from "../components/CompaniesPos";
 import CompanyContact from "../components/CompanyContact";
+import Reviews from "../../reviews/components/Reviews";
+import { findReviewsByCname } from "../../shared/queries";
 
 const Company = () => {
   const navigate = useNavigate();
@@ -41,6 +43,11 @@ const Company = () => {
       <div>
         <h3>Kapcsolat</h3>
         <CompanyContact contact={company.contact} />
+      </div>
+      <div>
+        <h3>Vélemények</h3>
+        {console.log(findReviewsByCname(company.name))}
+        {/* <Reviews cname={company.name} /> */}
       </div>
     </div>
   );

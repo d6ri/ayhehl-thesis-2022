@@ -2,7 +2,7 @@ import React from "react";
 
 import PositionItem from "./PositionItem.js";
 import { RefinePositionSearch } from "../../shared/sharedFunctions.js";
-import { departmentOptions as departmentsQuery } from "../../testData/queries.js";
+import { departmentOptions as departmentsQuery } from "../../shared/queries.js";
 
 const PositionsList = ({ searchText, filterDepartment, positionsList }) => {
   const departmentOptions = departmentsQuery();

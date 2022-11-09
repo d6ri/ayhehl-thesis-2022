@@ -1,7 +1,7 @@
 import React from "react";
 import PositionsList from "../../positions/components/PositionList";
 
-import { companiesPositionsList } from "../../testData/queries";
+import { companiesPositionsList } from "../../shared/queries";
 
 const CompaniesPos = ({ cid }) => {
   const FilteredPositions = companiesPositionsList(cid);

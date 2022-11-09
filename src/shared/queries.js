@@ -1,5 +1,6 @@
-import { POSLIST } from "./positions";
-import { COMPLIST } from "./companies";
+import { POSLIST } from "../testData/positions";
+import { COMPLIST } from "../testData/companies";
+import { REVIEWSLIST } from "../testData/reviews";
 
 export const departmentOptions = () => {
   const departments = [];
@@ -15,10 +16,7 @@ export const departmentOptions = () => {
 export const companiesOptions = () => {
   const companies = [];
   COMPLIST.forEach((e) => {
-    if (!companies.includes(e.name)) {
-      companies.push(e.name);
-      companies.sort();
-    }
+    companies.push({ id: e.cid, value: e.name });
   });
   return companies;
 };
@@ -29,4 +27,12 @@ export const companiesPositionsList = (cid) => {
 
 export const findCompanyByID = (cid) => {
   return COMPLIST.find((company) => (company.cid = cid));
+};
+
+export const findReviewsByCname = (cname) => {
+  console.log(typeof cname);
+  REVIEWSLIST.forEach((review) => {
+    console.log(review["formValues"]["companyName"] == cname);
+  });
+  // return REVIEWSLIST.filter((review) => review["formValues"]["companyName"] == cname);
 };
