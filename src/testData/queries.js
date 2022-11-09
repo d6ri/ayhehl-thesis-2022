@@ -24,14 +24,9 @@ export const companiesOptions = () => {
 };
 
 export const companiesPositionsList = (cid) => {
-  const positions = POSLIST.filter((position) => position.cid === cid);
-  return positions;
+  return POSLIST.filter((position) => position.cid === cid);
 };
 
-export const starRatingValues = {
-  1: "Egyáltalán nem",
-  2: "Kevésbé",
-  3: "Bizonyos esetekben",
-  4: "Nagyrészben igen",
-  5: "Teljes mértékben",
+export const findCompanyByID = (cid) => {
+  return COMPLIST.find((company) => (company.cid = cid));
 };

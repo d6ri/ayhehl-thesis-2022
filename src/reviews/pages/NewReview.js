@@ -8,9 +8,9 @@ import RadioInput from "../../shared/components/FormElements/RadioInput";
 import { VALIDATOR_EMPTY, VALIDATOR_MINLEN } from "../../shared/validators";
 import {
   departmentOptions as departmentsQuery,
-  starRatingValues,
   companiesOptions as companiesQuery,
 } from "../../testData/queries";
+import { reviewFormInitialInputs, starRatingValues } from "../../testData/constants";
 
 const formReducer = (state, action) => {
   switch (action.type) {
@@ -51,22 +51,7 @@ const NewReview = () => {
   const companiesOptions = companiesQuery();
 
   const [formState, dispatch] = useReducer(formReducer, {
-    inputs: {
-      companyName: { value: "", isValid: false },
-      position: { value: "", isValid: false },
-      department: { value: "", isValid: false },
-      tasks: { value: "", isValid: false },
-      theoreticalKnowledge: { value: "", isValid: false },
-      foreignLanguage: { value: "", isValid: false },
-      flexibleSchedule: { value: "", isValid: false },
-      neededEquipments: { value: "", isValid: false },
-      mentoring: { value: "", isValid: false },
-      specificKnowledge: { value: "", isValid: false },
-      workplaceEnvironment: { value: "", isValid: false },
-      thesis: { value: "", isValid: false },
-      jobOffer: { value: "", isValid: false },
-      suggestions: { value: "", isValid: false },
-    },
+    inputs: reviewFormInitialInputs,
     isFormValid: false,
     isSubmitted: false,
   });
