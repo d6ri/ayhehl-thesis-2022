@@ -53,6 +53,7 @@ const NewReview = () => {
 
   const [formState, dispatch] = useReducer(formReducer, {
     inputs: {
+      companyName: { value: "", isValid: false },
       position: { value: "", isValid: false },
       department: { value: "", isValid: false },
       tasks: { value: "", isValid: false },

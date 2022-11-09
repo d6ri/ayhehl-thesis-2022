@@ -23,6 +23,11 @@ export const companiesOptions = () => {
   return companies;
 };
 
+export const companiesPositionsList = (cid) => {
+  const positions = POSLIST.filter((position) => position.cid === cid);
+  return positions;
+};
+
 export const starRatingValues = {
   1: "Egyáltalán nem",
   2: "Kevésbé",
