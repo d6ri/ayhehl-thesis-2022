@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import { COMPLIST } from "../../testData/companies";
 import IndexImg from "../../shared/components/UI/IndexImg";
@@ -19,8 +19,8 @@ const Company = () => {
         <IndexImg
           src={`/images/${company.cid}.jpg`}
           alt={company.cid}
-          widht="150px"
-          height="150px"
+          widht='150px'
+          height='150px'
         />
         <h1>{company.name}</h1>
       </div>
