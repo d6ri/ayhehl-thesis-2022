@@ -4,13 +4,13 @@ export const USERSLIST = [
     name: "Jenei Dóra",
     passwd: "abcd123",
     role: "student",
-    program: "gazdaságinformatikus",
+    program: "Gazdaságinformatikus",
   },
   {
     uid: "test00",
     name: "Teszt Elek",
     passwd: "abcd123",
     role: "student",
-    program: "turizmus-vendéglátás",
+    program: "Turizmus-vendéglátás",
   },
 ];

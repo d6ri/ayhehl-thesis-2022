@@ -10,9 +10,9 @@ const PositionsList = ({ searchText, filterDepartment, positionsList }) => {
     return <div>Nincsenek nyitott gyakornoki pozíciók.</div>;
   }
 
-  if (searchText == undefined) searchText = "";
+  if (searchText === undefined) searchText = "";
 
-  if (filterDepartment == undefined) filterDepartment = departmentOptions;
+  if (filterDepartment === undefined) filterDepartment = departmentOptions;
 
   const filteredData = RefinePositionSearch(positionsList, searchText, filterDepartment);
 

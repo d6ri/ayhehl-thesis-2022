@@ -87,7 +87,7 @@ const Select = ({
                 {e}
               </option>
             );
-          }
+          } else return null;
         })}
       </select>
       <p>

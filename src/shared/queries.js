@@ -29,10 +29,6 @@ export const findCompanyByID = (cid) => {
   return COMPLIST.find((company) => (company.cid = cid));
 };
 
-export const findReviewsByCname = (cname) => {
-  console.log(typeof cname);
-  REVIEWSLIST.forEach((review) => {
-    console.log(review["formValues"]["companyName"] == cname);
-  });
-  // return REVIEWSLIST.filter((review) => review["formValues"]["companyName"] == cname);
+export const findReviewsByCompanyID = (cid) => {
+  return REVIEWSLIST.filter((review) => review["formValues"]["companyId"] === cid);
 };
