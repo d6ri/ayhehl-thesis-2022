@@ -1,11 +1,11 @@
 export const REVIEWSLIST = [
   {
-    uid: "ayhehl",
+    uid: "abcdef",
     rid: 1,
     date: "2022-03-12",
     formValues: {
       companyId: 1,
-      position: "HR gyakornok",
+      position: "Rendezvényszervező",
       department: "Gazdasági",
       tasks: "",
       theoreticalKnowledge: "5",
@@ -22,7 +22,7 @@ export const REVIEWSLIST = [
     },
   },
   {
-    uid: "test00",
+    uid: "ayhehl",
     rid: 2,
     date: "2021-11-05",
     formValues: {
@@ -66,7 +66,7 @@ export const REVIEWSLIST = [
     },
   },
   {
-    uid: "ayhehl",
+    uid: "xyzwed",
     rid: 4,
     date: "2021-09-29",
     formValues: {
@@ -88,12 +88,34 @@ export const REVIEWSLIST = [
     },
   },
   {
-    uid: "ayhehl",
+    uid: "qwertz",
     rid: 5,
     date: "2020-04-27",
     formValues: {
       companyId: 1,
       position: "Controlling gyakornok",
+      department: "Gazdasági",
+      tasks: "",
+      theoreticalKnowledge: "5",
+      foreignLanguage: "5",
+      flexibleSchedule: "4",
+      neededEquipments: "4",
+      mentoring: "3",
+      specificKnowledge: "4",
+      workplaceEnvironment: "3",
+      thesis: "Igen",
+      jobOffer: "Igen",
+      suggestions:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    },
+  },
+  {
+    uid: "asdfgh",
+    rid: 5,
+    date: "2020-04-27",
+    formValues: {
+      companyId: 3,
+      position: "Banki gyakornok",
       department: "Gazdasági",
       tasks: "",
       theoreticalKnowledge: "5",
