@@ -9,23 +9,26 @@ import Auth from "./shared/pages/Auth.js";
 import NotFound from "./shared/pages/NotFound.js";
 import MainNav from "./shared/components/Nav/MainNav.js";
 import NewReview from "./reviews/pages/NewReview.js";
+import { AuthContext } from "./shared/context/auth-context.js";
 
 const App = () => {
   return (
-    <Router basename='/'>
-      <MainNav />
-      <main>
-        <Routes>
-          <Route path='/' element={<Positions />} />
-          <Route path='/companies' element={<Companies />} />
-          <Route path='/positions/:pid' element={<Position />} />
-          <Route path='/companies/:cid' element={<Company />} />
-          <Route path='/login' element={<Auth />} />
-          <Route path='*' element={<NotFound />} />
-          <Route path='/newreview' element={<NewReview />} />
-        </Routes>
-      </main>
-    </Router>
+    <AuthContext.Provider value={""}>
+      <Router basename='/'>
+        <MainNav />
+        <main>
+          <Routes>
+            <Route path='/' element={<Positions />} />
+            <Route path='/companies' element={<Companies />} />
+            <Route path='/positions/:pid' element={<Position />} />
+            <Route path='/companies/:cid' element={<Company />} />
+            <Route path='/login' element={<Auth />} />
+            <Route path='*' element={<NotFound />} />
+            <Route path='/newreview' element={<NewReview />} />
+          </Routes>
+        </main>
+      </Router>
+    </AuthContext.Provider>
   );
 };
 
