@@ -18,7 +18,7 @@ export const validate = (value, validators) => {
   let errorText = "";
   for (const validator of validators) {
     if (validator.type === VALIDATOR_TYPE_MINLEN) {
-      isValid = isValid && value.length > 3;
+      isValid = isValid && value.length > validator.minval;
       if (!isValid) {
         errorText = validator.errorText;
         break;

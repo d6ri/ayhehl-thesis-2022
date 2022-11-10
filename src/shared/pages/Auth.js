@@ -1,10 +1,11 @@
-import React, { useReducer, useCallback } from "react";
+import React, { useReducer, useCallback, useContext } from "react";
 
 import Input from "../components/FormElements/Input";
 import Button from "../components/FormElements/Button";
 import { VALIDATOR_EMPTY, VALIDATOR_MINLEN } from "../validators";
 import Card from "../components/UI/Card";
 import "./Auth.css";
+import { AuthContext } from "../context/auth-context";
 
 const formReducer = (state, action) => {
   switch (action.type) {
@@ -41,6 +42,8 @@ const formReducer = (state, action) => {
 };
 
 const Auth = () => {
+  const auth = useContext(AuthContext);
+
   const [formState, dispatch] = useReducer(formReducer, {
     inputs: { username: "", password: "" },
     isFormValid: false,
@@ -54,14 +57,9 @@ const Auth = () => {
   const formSubmitHandler = (event) => {
     event.preventDefault();
     dispatch({ type: "SUBMITTED" });
-    if (!formState.isFormValid) {
-      console.log("hiba!!!");
+    if (formState.isFormValid) {
+      auth.login(formState.inputs.username.value);
     }
-    // if (formState.isFormValid) {
-    //   document.getElementById("loginForm").reset();
-    //   window.alert("Értékelés sikeresen rögzítve!");
-    //   window.location.reload();
-    // }
   };
   return (
     <Card className='auth-card'>
@@ -72,8 +70,7 @@ const Auth = () => {
           elementType='input'
           type='text'
           label='Felhasználónév'
-          placeholder='Felhasználónév'
-          validators={[VALIDATOR_EMPTY(), VALIDATOR_MINLEN(6)]}
+          validators={[VALIDATOR_EMPTY(), VALIDATOR_MINLEN(5)]}
           onInput={inputHandler}
           isFormSubmitted={formState.isSubmitted}
         />
@@ -82,11 +79,13 @@ const Auth = () => {
           elementType='input'
           type='password'
           label='Jelszó'
-          validators={[VALIDATOR_EMPTY()]}
+          validators={[VALIDATOR_EMPTY(), VALIDATOR_MINLEN(5)]}
           onInput={inputHandler}
           isFormSubmitted={formState.isSubmitted}
         />
-        <Button type='submit'>Bejelentkezés</Button>
+        <Button type='submit' disabled={!formState.isFormValid}>
+          Bejelentkezés
+        </Button>
       </form>
     </Card>
   );

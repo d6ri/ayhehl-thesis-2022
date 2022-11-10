@@ -6,11 +6,13 @@ const Tabs = (props) => {
     <div>
       <ul>
         {props.children.map((tab) => {
-          return (
-            <li key={tab.props.id} id={tab.props.id}>
-              <a onClick={() => setActiveTab(tab.props.content)}>{tab.props.navTitle}</a>
-            </li>
-          );
+          if (tab !== false) {
+            return (
+              <li key={tab.props.id} id={tab.props.id}>
+                <a onClick={() => setActiveTab(tab.props.content)}>{tab.props.navTitle}</a>
+              </li>
+            );
+          }
         })}
       </ul>
       <div>{activeTab}</div>

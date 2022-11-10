@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import { COMPLIST } from "../../testData/companies";
@@ -9,8 +9,10 @@ import CompanyContact from "../components/CompanyContact";
 import Reviews from "../../reviews/components/Reviews";
 import Tabs from "../../shared/components/UI/Tab/Tabs";
 import Tab from "../../shared/components/UI/Tab/Tab";
+import { AuthContext } from "../../shared/context/auth-context";
 
 const Company = () => {
+  const auth = useContext(AuthContext);
   const navigate = useNavigate();
   const cid = useParams().cid;
   const company = COMPLIST.find((comp) => comp.cid.toString() === cid);
@@ -49,11 +51,13 @@ const Company = () => {
           navTitle={"Kapcsolat"}
           content={<CompanyContact contact={company.contact} />}
         />
-        <Tab
-          id={"companyReviews"}
-          navTitle={"Vélemények"}
-          content={<Reviews cid={company.cid} />}
-        />
+        {auth.isLoggedIn && (
+          <Tab
+            id={"companyReviews"}
+            navTitle={"Vélemények"}
+            content={<Reviews cid={company.cid} />}
+          />
+        )}
       </Tabs>
     </div>
   );
