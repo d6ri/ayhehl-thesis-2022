@@ -11,19 +11,18 @@ import MainNav from "./shared/components/Nav/MainNav.js";
 import NewReview from "./reviews/pages/NewReview.js";
 
 const App = () => {
-  const githubRepoName = "ayhehl-thesis-2022";
   return (
-    <Router>
+    <Router basename='/'>
       <MainNav />
       <main>
         <Routes>
-          <Route path={`/${githubRepoName}`} element={<Positions />} />
-          <Route path={`/${githubRepoName}/companies`} element={<Companies />} />
-          <Route path={`/${githubRepoName}/positions/:pid`} element={<Position />} />
-          <Route path={`/${githubRepoName}/companies/:cid`} element={<Company />} />
-          <Route path={`/${githubRepoName}/login`} element={<Auth />} />
+          <Route path='/' element={<Positions />} />
+          <Route path='/companies' element={<Companies />} />
+          <Route path='/positions/:pid' element={<Position />} />
+          <Route path='/companies/:cid' element={<Company />} />
+          <Route path='/login' element={<Auth />} />
           <Route path='*' element={<NotFound />} />
-          <Route path={`/${githubRepoName}/newreview`} element={<NewReview />} />
+          <Route path='/newreview' element={<NewReview />} />
         </Routes>
       </main>
     </Router>

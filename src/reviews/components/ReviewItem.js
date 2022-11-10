@@ -10,7 +10,7 @@ const ReviewItem = ({ uid, date, position, suggestions }) => {
   return (
     <li>
       <Card>
-        <h2>{`${user.program} hallgató, ${position} pozíció`}</h2>
+        <h2>{`${user.program} szakos hallgató, ${position} pozíció`}</h2>
         <span>{date}</span>
         <p>{suggestions}</p>
       </Card>
