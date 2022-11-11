@@ -1,9 +1,9 @@
-import React from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import React from 'react';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 
-import IndexImg from "../../shared/components/UI/IndexImg";
-import { POSLIST } from "../../testData/positions";
-import { COMPLIST } from "../../testData/companies";
+import IndexImg from '../../shared/components/UI/IndexImg';
+import { POSLIST } from '../../testData/positions';
+import { COMPLIST } from '../../testData/companies';
 
 const Position = () => {
   const navigate = useNavigate();
@@ -13,7 +13,9 @@ const Position = () => {
 
   return (
     <div>
-      <button onClick={() => navigate(-1)}>Vissza</button>
+      <button data-testid='backNavBtn' onClick={() => navigate(-1)}>
+        Vissza
+      </button>
 
       <div>
         <IndexImg
@@ -21,8 +23,9 @@ const Position = () => {
           alt={position.cid}
           widht='150px'
           height='150px'
+          id={`${position.cid}-img`}
         />
-        <h1>{position.name}</h1>
+        <h1 data-testid='posName'>{position.name}</h1>
       </div>
       <div>
         <h3>
@@ -33,10 +36,10 @@ const Position = () => {
         <h3>Munkavégzés helye: {position.location}</h3>
         <h3>Szerződés típusa: {position.contract} idejű</h3>
         <h3>
-          {position.duration === "" ? "" : `Munkaviszony időtartama: ${position.duration} hónap`}
+          {position.duration === '' ? '' : `Munkaviszony időtartama: ${position.duration} hónap`}
         </h3>
         <h3>
-          Munkaórák:{" "}
+          Munkaórák:{' '}
           {position.schedule.length > 1
             ? `${position.schedule[0]}-${position.schedule[1]} `
             : `${position.schedule} `}

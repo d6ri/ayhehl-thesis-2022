@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/preset-react": "^7.18.6",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "enzyme": "^3.11.0",
+    "jsdom": "^20.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
@@ -18,7 +21,7 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest --watchAll",
+    "test": "jest --watchAll --env=jsdom",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -45,5 +48,6 @@
     "gh-pages": "^4.0.0",
     "jest": "^27.5.1"
   },
-  "homepage": "https://d6ri.github.io/ayhehl-thesis-2022"
+  "homepage": "https://d6ri.github.io/ayhehl-thesis-2022",
+  "testEnvironment": "jsdom"
 }
