@@ -10,6 +10,7 @@ import Reviews from "../../reviews/components/Reviews";
 import Tabs from "../../shared/components/UI/Tab/Tabs";
 import Tab from "../../shared/components/UI/Tab/Tab";
 import { AuthContext } from "../../shared/context/auth-context";
+import CompanyStatistics from "../components/CompanyStatistics";
 
 const Company = () => {
   const auth = useContext(AuthContext);
@@ -50,6 +51,11 @@ const Company = () => {
           id={"companyContact"}
           navTitle={"Kapcsolat"}
           content={<CompanyContact contact={company.contact} />}
+        />
+        <Tab
+          id={"companyStatistics"}
+          navTitle={"Statisztikák"}
+          content={<CompanyStatistics cid={company.cid} />}
         />
         {auth.isLoggedIn && (
           <Tab

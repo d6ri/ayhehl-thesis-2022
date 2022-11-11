@@ -32,3 +32,16 @@ export const findCompanyByID = (cid) => {
 export const findReviewsByCompanyID = (cid) => {
   return REVIEWSLIST.filter((review) => review["formValues"]["companyId"] === cid);
 };
+
+export const returnReviewValuesByAttribute = (cid, attribute) => {
+  const reviewsListByCompany = findReviewsByCompanyID(cid);
+  const reviewValuesListByCompany = reviewsListByCompany.map((review) => {
+    return review["formValues"];
+  });
+  const reviewValuesByAttribute = reviewValuesListByCompany.map((review) => {
+    return parseInt(review[attribute]);
+  });
+  const average =
+    reviewValuesByAttribute.reduce((a, b) => a + b, 0) / reviewValuesByAttribute.length;
+  return average;
+};
