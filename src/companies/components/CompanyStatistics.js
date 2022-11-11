@@ -1,5 +1,7 @@
 import React from "react";
 
+import { HiStar } from "react-icons/hi";
+
 import { returnReviewValuesByAttribute } from "../../shared/queries";
 
 const CompanyStatistics = ({ cid }) => {
@@ -17,12 +19,15 @@ const CompanyStatistics = ({ cid }) => {
         let average = returnReviewValuesByAttribute(cid, attr);
         overallAvg += average;
         return (
-          <p key={attr}>
-            {attributes[attr]}: <span>{average} pont</span>
-          </p>
+          <div key={attr}>
+            {attributes[attr]}:<span>{average} pont</span>
+            {[...Array(5)].map((star, i) => {
+              return <HiStar size='20' color={average <= i ? "#d8d8d8" : "#FFDB33"} />;
+            })}
+          </div>
         );
       })}
-      <p>Összátlag: {overallAvg / Object.keys(attributes).length} / 5 pont</p>
+      <p>Összátlag: {overallAvg / Object.keys(attributes).length}</p>
     </div>
   );
 };
