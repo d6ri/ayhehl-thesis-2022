@@ -1,13 +1,14 @@
-import { React, useState } from "react";
+import { React, useState } from 'react';
 
-import { POSLIST } from "../../testData/positions";
-import PositionsList from "../components/PositionList";
-import { departmentOptions as departmentsQuery } from "../../shared/queries";
+import { POSLIST } from '../../testData/positions';
+import PositionsList from '../components/PositionList';
+import { departmentOptions as departmentsQuery } from '../../shared/queries';
+import './Positions.css';
 
 const Positions = () => {
   const departmentOptions = departmentsQuery();
 
-  const [inputText, setInputText] = useState("");
+  const [inputText, setInputText] = useState('');
   function inputTextHandler(e) {
     setInputText(e.target.value.toLowerCase());
   }
@@ -16,14 +17,14 @@ const Positions = () => {
   function inputDepHandler(e) {
     const button = e.target;
 
-    button.toggleAttribute("data-unchoosen");
+    button.toggleAttribute('data-unchoosen');
 
-    if (!button.hasAttribute("data-unchoosen")) {
+    if (!button.hasAttribute('data-unchoosen')) {
       setInputDepartment([...inputDepartment, button.value]);
-      button.setAttribute("data-choosen", "true");
+      button.setAttribute('data-choosen', 'true');
     } else {
       setInputDepartment(inputDepartment.filter((dep) => dep !== button.value));
-      button.toggleAttribute("data-choosen");
+      button.toggleAttribute('data-choosen');
     }
   }
 

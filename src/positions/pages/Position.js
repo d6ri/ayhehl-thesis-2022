@@ -4,6 +4,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import IndexImg from '../../shared/components/UI/IndexImg';
 import { POSLIST } from '../../testData/positions';
 import { COMPLIST } from '../../testData/companies';
+import './Position.css';
 
 const Position = () => {
   const navigate = useNavigate();
