@@ -1,20 +1,21 @@
-import React, { useCallback, useReducer } from "react";
+import React, { useCallback, useReducer } from 'react';
 
-import Button from "../../shared/components/FormElements/Button";
-import Input from "../../shared/components/FormElements/Input";
-import Select from "../../shared/components/FormElements/Select";
-import StarRating from "../../shared/components/FormElements/StarRating";
-import RadioInput from "../../shared/components/FormElements/RadioInput";
-import { VALIDATOR_EMPTY, VALIDATOR_MINLEN } from "../../shared/validators";
+import Button from '../../shared/components/FormElements/Button';
+import Input from '../../shared/components/FormElements/Input';
+import Select from '../../shared/components/FormElements/Select';
+import StarRating from '../../shared/components/FormElements/StarRating';
+import RadioInput from '../../shared/components/FormElements/RadioInput';
+import { VALIDATOR_EMPTY, VALIDATOR_MINLEN } from '../../shared/validators';
 import {
   departmentOptions as departmentsQuery,
   companiesOptions as companiesQuery,
-} from "../../shared/queries";
-import { reviewFormInitialInputs, starRatingValues } from "../../shared/constants";
+} from '../../shared/queries';
+import { reviewFormInitialInputs, starRatingValues } from '../../shared/constants';
+import './NewReview.css';
 
 const formReducer = (state, action) => {
   switch (action.type) {
-    case "INPUT_CHANGE": {
+    case 'INPUT_CHANGE': {
       // set the overall form validity
       let isFormValid = true;
       for (const inputId in state.inputs) {
@@ -35,7 +36,7 @@ const formReducer = (state, action) => {
         isFormValid: isFormValid,
       };
     }
-    case "SUBMITTED": {
+    case 'SUBMITTED': {
       return {
         ...state,
         isSubmitted: true,
@@ -58,15 +59,15 @@ const NewReview = () => {
 
   //#region Handler methods
   const inputHandler = useCallback((id, value, isValid) => {
-    dispatch({ type: "INPUT_CHANGE", inputId: id, value: value, isValid: isValid });
+    dispatch({ type: 'INPUT_CHANGE', inputId: id, value: value, isValid: isValid });
   }, []);
 
   const formSubmitHandler = (event) => {
     event.preventDefault();
-    dispatch({ type: "SUBMITTED" });
+    dispatch({ type: 'SUBMITTED' });
     if (formState.isFormValid) {
-      document.getElementById("addNewReviewForm").reset();
-      window.alert("Értékelés sikeresen rögzítve!");
+      document.getElementById('addNewReviewForm').reset();
+      window.alert('Értékelés sikeresen rögzítve!');
       window.location.reload();
     }
   };
@@ -182,7 +183,7 @@ const NewReview = () => {
         id='thesis'
         name='thesis'
         legend='Kaptál a cégtől szakdolgozati témajavaslatot vagy külső konzulensi támogatást? *'
-        inputs={["Igen", "Nem"]}
+        inputs={['Igen', 'Nem']}
         onInput={inputHandler}
         isFormSubmitted={formState.isSubmitted}
         required={true}
@@ -192,7 +193,7 @@ const NewReview = () => {
         name='jobOffer'
         legend='Ajánlott a cég lehetőséget a szakmai gyakorlat elvégzése után valamely (junior) pozíción
 		való elhelyezkedéshez? *'
-        inputs={["Igen", "Nem"]}
+        inputs={['Igen', 'Nem']}
         onInput={inputHandler}
         isFormSubmitted={formState.isSubmitted}
         required={true}

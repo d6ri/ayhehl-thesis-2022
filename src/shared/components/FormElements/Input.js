@@ -1,10 +1,12 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useReducer, useEffect } from 'react';
 
-import { validate } from "../../validators";
+import { validate } from '../../validators';
+
+import './NewReview.css';
 
 const inputReducer = (state, action) => {
   switch (action.type) {
-    case "CHANGE":
+    case 'CHANGE':
       let validation = validate(action.value, action.validators);
       return {
         ...state,
@@ -12,7 +14,7 @@ const inputReducer = (state, action) => {
         isValid: validation.isValid,
         errorText: validation.errorText,
       };
-    case "TOUCH":
+    case 'TOUCH':
       return { ...state, isTouched: true };
     default:
       return state;
@@ -32,15 +34,15 @@ const Input = ({
 }) => {
   const hasValidator = validators.length > 0 ? true : false;
   const [inputState, dispatch] = useReducer(inputReducer, {
-    value: "",
+    value: '',
     isValid: !hasValidator,
     isTouched: false,
-    errorText: "",
+    errorText: '',
   });
 
   const changeHandler = (event) => {
     dispatch({
-      type: "CHANGE",
+      type: 'CHANGE',
       value: event.target.value,
       validators: validators,
     });
@@ -48,10 +50,10 @@ const Input = ({
 
   const touchHandler = (event) => {
     dispatch({
-      type: "TOUCH",
+      type: 'TOUCH',
     });
     dispatch({
-      type: "CHANGE",
+      type: 'CHANGE',
       value: event.target.value,
       validators: validators,
     });
@@ -64,7 +66,7 @@ const Input = ({
   }, [value, isValid, id, onInput]);
 
   const element =
-    elementType === "input" ? (
+    elementType === 'input' ? (
       <input
         id={id}
         type={type}
@@ -85,7 +87,7 @@ const Input = ({
   return (
     <div
       className={`form-control ${
-        !inputState.isValid && inputState.isTouched && "form-control--invalid"
+        !inputState.isValid && inputState.isTouched && 'form-control--invalid'
       }`}
     >
       <label htmlFor={id}>{label}</label>
@@ -95,7 +97,7 @@ const Input = ({
           (!inputState.isValid &&
             !inputState.isTouched &&
             isFormSubmitted &&
-            "Kötelezően kitöltendő mező, ne hagyd üresen!")}
+            'Kötelezően kitöltendő mező, ne hagyd üresen!')}
       </p>
     </div>
   );

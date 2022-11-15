@@ -1,16 +1,17 @@
-import React, { useContext } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import React, { useContext } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 
-import { COMPLIST } from "../../testData/companies";
-import IndexImg from "../../shared/components/UI/IndexImg";
-import CompanyAbout from "../components/CompanyAbout.js";
-import CompaniesPos from "../components/CompaniesPos";
-import CompanyContact from "../components/CompanyContact";
-import Reviews from "../../reviews/components/Reviews";
-import Tabs from "../../shared/components/UI/Tab/Tabs";
-import Tab from "../../shared/components/UI/Tab/Tab";
-import { AuthContext } from "../../shared/context/auth-context";
-import CompanyStatistics from "../components/CompanyStatistics";
+import { COMPLIST } from '../../testData/companies';
+import IndexImg from '../../shared/components/UI/IndexImg';
+import CompanyAbout from '../components/CompanyAbout.js';
+import CompaniesPos from '../components/CompaniesPos';
+import CompanyContact from '../components/CompanyContact';
+import Reviews from '../../reviews/components/Reviews';
+import Tabs from '../../shared/components/UI/Tab/Tabs';
+import Tab from '../../shared/components/UI/Tab/Tab';
+import { AuthContext } from '../../shared/context/auth-context';
+import CompanyStatistics from '../components/CompanyStatistics';
+import './Company.css';
 
 const Company = () => {
   const auth = useContext(AuthContext);
@@ -38,29 +39,29 @@ const Company = () => {
       </div>
       <Tabs>
         <Tab
-          id={"aboutTab"}
-          navTitle={"Rólunk"}
+          id={'aboutTab'}
+          navTitle={'Rólunk'}
           content={<CompanyAbout description={company.desc} />}
         />
         <Tab
-          id={"companyPositions"}
-          navTitle={"Gyakornoki pozíciók"}
+          id={'companyPositions'}
+          navTitle={'Gyakornoki pozíciók'}
           content={<CompaniesPos cid={company.cid} />}
         />
         <Tab
-          id={"companyContact"}
-          navTitle={"Kapcsolat"}
+          id={'companyContact'}
+          navTitle={'Kapcsolat'}
           content={<CompanyContact contact={company.contact} />}
         />
         <Tab
-          id={"companyStatistics"}
-          navTitle={"Statisztikák"}
+          id={'companyStatistics'}
+          navTitle={'Statisztikák'}
           content={<CompanyStatistics cid={company.cid} />}
         />
         {auth.isLoggedIn && (
           <Tab
-            id={"companyReviews"}
-            navTitle={"Vélemények"}
+            id={'companyReviews'}
+            navTitle={'Vélemények'}
             content={<Reviews cid={company.cid} />}
           />
         )}

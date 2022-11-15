@@ -1,8 +1,10 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useReducer, useEffect } from 'react';
+
+import './RadioInput.css';
 
 const inputReducer = (state, action) => {
   switch (action.type) {
-    case "CHANGE":
+    case 'CHANGE':
       return {
         ...state,
         value: action.value,
@@ -26,14 +28,14 @@ const RadioInput = ({
 }) => {
   const isRequired = required ? true : false;
   const [inputState, dispatch] = useReducer(inputReducer, {
-    value: "",
+    value: '',
     isValid: !isRequired,
     isTouched: false,
   });
 
   const changeHandler = (event) => {
     dispatch({
-      type: "CHANGE",
+      type: 'CHANGE',
       value: event.target.value,
       validators: validators,
     });
@@ -52,7 +54,7 @@ const RadioInput = ({
         const radioId = `${name}-${input.toLowerCase()}`;
         return (
           <div key={`${name}-${i}`}>
-            <input type="radio" value={input} name={name} id={radioId} onChange={changeHandler} />
+            <input type='radio' value={input} name={name} id={radioId} onChange={changeHandler} />
             <label htmlFor={radioId}>{input}</label>
           </div>
         );
@@ -61,7 +63,7 @@ const RadioInput = ({
         {!inputState.isValid &&
           !inputState.isTouched &&
           isFormSubmitted &&
-          "Kötelezően kitöltendő mező!"}
+          'Kötelezően kitöltendő mező!'}
       </p>
     </fieldset>
   );

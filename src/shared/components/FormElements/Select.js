@@ -1,10 +1,11 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useReducer, useEffect } from 'react';
 
-import { validate } from "../../validators";
+import { validate } from '../../validators';
+import './Select.css';
 
 const inputReducer = (state, action) => {
   switch (action.type) {
-    case "CHANGE":
+    case 'CHANGE':
       const validation = validate(action.value, action.validators);
       return {
         ...state,
@@ -12,7 +13,7 @@ const inputReducer = (state, action) => {
         isValid: validation.isValid,
         errorText: validation.errorText,
       };
-    case "TOUCH":
+    case 'TOUCH':
       return { ...state, isTouched: true };
     default:
       return state;
@@ -31,15 +32,15 @@ const Select = ({
 }) => {
   const isRequired = required ? true : false;
   const [inputState, dispatch] = useReducer(inputReducer, {
-    value: "",
+    value: '',
     isValid: !isRequired,
     isTouched: false,
-    errorText: "",
+    errorText: '',
   });
 
   const changeHandler = (event) => {
     dispatch({
-      type: "CHANGE",
+      type: 'CHANGE',
       value: event.target.value,
       validators: validators,
     });
@@ -47,10 +48,10 @@ const Select = ({
 
   const touchHandler = (event) => {
     dispatch({
-      type: "TOUCH",
+      type: 'TOUCH',
     });
     dispatch({
-      type: "CHANGE",
+      type: 'CHANGE',
       value: event.target.value,
       validators: validators,
     });
@@ -75,13 +76,13 @@ const Select = ({
           {defaultOption}
         </option>
         {options.map((e) => {
-          if (typeof e === "object") {
+          if (typeof e === 'object') {
             return (
-              <option value={e["id"]} key={e["id"]}>
-                {e["value"]}
+              <option value={e['id']} key={e['id']}>
+                {e['value']}
               </option>
             );
-          } else if (typeof e === "string") {
+          } else if (typeof e === 'string') {
             return (
               <option value={e} key={e}>
                 {e}
@@ -95,7 +96,7 @@ const Select = ({
           (!inputState.isValid &&
             !inputState.isTouched &&
             isFormSubmitted &&
-            "Kötelezően kitöltendő mező, ne hagyd üresen!")}
+            'Kötelezően kitöltendő mező, ne hagyd üresen!')}
       </p>
     </div>
   );

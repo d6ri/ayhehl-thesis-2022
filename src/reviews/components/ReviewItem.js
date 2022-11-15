@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import Card from "../../shared/components//UI/Card.js";
-
-import { USERSLIST } from "../../testData/users.js";
+import Card from '../../shared/components//UI/Card.js';
+import './ReviewItem.css';
+import { USERSLIST } from '../../testData/users.js';
 
 const ReviewItem = ({ uid, date, position, suggestions }) => {
   // find user by review.uid --> program
