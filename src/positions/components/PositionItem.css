@@ -1,11 +1,83 @@
 li {
-	list-style: none;
+  list-style: none;
+  display: inline-block;
+  vertical-align: top;
+  margin: 2rem;
 }
 
-.positem__head {
-	text-align: center;
+.carditem__head {
+  text-align: center;
 }
 
-.position__attr {
-	display: inline;
+.carditem__head a {
+  display: inline-block;
+  color: #015c92;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: 0.2s ease;
+}
+
+.carditem__head a:hover {
+  text-decoration-color: #015c92;
+}
+
+.carditem__info {
+  text-align: left;
+}
+
+.carditem__info a {
+  display: inline-block;
+  color: black;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: 0.2s ease;
+}
+
+.carditem__info a:hover {
+  text-decoration-color: #015c92;
+}
+
+.carditem__info svg {
+  padding-right: 0.5em;
+}
+
+.carditem__info > .department-label {
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 0.3vh 1vh;
+  display: inline;
+  color: white;
+}
+
+.carditem__info > .department-label-gazdasági {
+  border-color: orange;
+  background-color: orange;
+}
+
+.carditem__info > .department-label-mérnöki {
+  border-color: grey;
+  background-color: grey;
+}
+
+.carditem__info > .department-label-informatikai {
+  border-color: steelblue;
+  background-color: steelblue;
+}
+
+.details-btn {
+  border: none;
+  border-radius: 3px;
+  background-color: #7fc0e6;
+  color: white;
+  padding: 1vh 2.5vh;
+  cursor: pointer;
+}
+
+.industry-label {
+  border: 2px solid #015c92;
+  color: #015c92;
+  border-radius: 5px;
+  padding: 0.3vh 1vh;
+  margin-right: 1.5vh;
+  display: inline;
 }

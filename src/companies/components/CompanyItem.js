@@ -1,31 +1,42 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import Card from "../../shared/components/UI/Card";
-import IndexImg from "../../shared/components/UI/IndexImg";
-import Button from "../../shared/components/FormElements/Button";
+import { MdOutlinePlace } from 'react-icons/md';
+import { HiArrowsPointingOut } from 'react-icons/hi2';
+
+import Card from '../../shared/components/UI/Card';
+import IndexImg from '../../shared/components/UI/IndexImg';
 
 const CompanyItem = ({ cid, name, industry, headquarters, size }) => {
   return (
     <li>
       <Card>
-        <div className="positem__head">
-          <IndexImg src={`/images/${cid}.jpg`} alt={cid} widht="100px" height="100px" />
+        <div className='carditem__head'>
+          <IndexImg src={`/images/${cid}.jpg`} alt={cid} widht='100px' height='100px' />
           <Link to={`/companies/${cid}`}>
             <h2>{name}</h2>
           </Link>
         </div>
-        <div className="positem__info">
-          <h3>Iparág:</h3>
-          <span>
-            {industry.length > 1 ? industry.map((e) => <span key={e}>{e} </span>) : industry}
-          </span>
-          <h3>Székhelye:</h3>
-          <span>{headquarters}</span>
-          <h3>Mérete:</h3>
-          <span>{size}</span>
-          <br />
-          <Button to={`/companies/${cid}`}>Részletek</Button>
+        <div className='carditem__info'>
+          <p>
+            <MdOutlinePlace size='1.2em' />
+            {headquarters}
+          </p>
+          <p>
+            <HiArrowsPointingOut size='1.2em' />
+            {size}
+          </p>
+          <p>
+            {industry.length > 1 ? (
+              industry.map((e) => (
+                <span key={e} className='industry-label'>
+                  {e}
+                </span>
+              ))
+            ) : (
+              <span className='industry-label'>{industry}</span>
+            )}
+          </p>
         </div>
       </Card>
     </li>

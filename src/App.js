@@ -1,18 +1,19 @@
-import React, { useCallback, useState } from "react";
-import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import React, { useCallback, useState } from 'react';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
-import Positions from "./positions/pages/Positions.js";
-import Position from "./positions/pages/Position.js";
-import Company from "./companies/pages/Company.js";
-import Companies from "./companies/pages/Companies.js";
-import Auth from "./shared/pages/Auth.js";
-import MainNav from "./shared/components/Nav/MainNav.js";
-import NewReview from "./reviews/pages/NewReview.js";
-import { AuthContext } from "./shared/context/auth-context.js";
+import Positions from './positions/pages/Positions.js';
+import Position from './positions/pages/Position.js';
+import Company from './companies/pages/Company.js';
+import Companies from './companies/pages/Companies.js';
+import Auth from './shared/pages/Auth.js';
+import MainNav from './shared/components/Nav/MainNav.js';
+import NewReview from './reviews/pages/NewReview.js';
+import { AuthContext } from './shared/context/auth-context.js';
+import Footer from './shared/components/UI/Footer';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState('');
 
   const login = useCallback(() => {
     setIsLoggedIn(true);
@@ -61,6 +62,7 @@ const App = () => {
         <MainNav />
         <main>{routes}</main>
       </Router>
+      <Footer />
     </AuthContext.Provider>
   );
 };

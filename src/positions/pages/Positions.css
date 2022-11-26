@@ -1,0 +1,52 @@
+.main {
+  text-align: center;
+}
+
+.searchBar {
+  background-image: url(/public/search-regular-24.png);
+  background-repeat: no-repeat;
+  background-position: 2% 50%;
+  width: 35rem;
+  padding: 0.8rem;
+  padding-left: 4%;
+  font-size: medium;
+  border: 2px solid gainsboro;
+  border-radius: 5px;
+  margin: auto;
+}
+
+.searchBar:focus {
+  outline: none;
+}
+
+.filtering-buttons {
+  margin-top: 2rem;
+}
+
+.filtering-buttons > button {
+  margin: 0 1.5rem;
+  padding: 0.5rem 2rem;
+  font-size: 1em;
+  color: #015c92;
+  background: transparent;
+  border-radius: 5px;
+  border: 2px #015c92 solid;
+  cursor: pointer;
+}
+
+.filtering-buttons > button:hover {
+  background: #00000017;
+  transition-duration: 0.4s;
+}
+
+.filtering-buttons > button[data-choosen='true'] {
+  background-color: #015c92;
+  color: white;
+}
+
+.pageTitle {
+  color: #015c92;
+  font-size: 1.8rem;
+  margin-top: 1rem;
+  text-align: center;
+}

@@ -29,28 +29,24 @@ const Positions = () => {
   }
 
   return (
-    <div>
-      <div className='searchBar'>
+    <div className='main'>
+      <h2 className='pageTitle'>Aktuális nyitott gyakornoki pozíciók</h2>
+      <div>
         <input
           onChange={inputTextHandler}
           defaultValue=''
           type='text'
-          placeholder='Keresés a pozíciók között'
+          placeholder='Keresés a pozíciók között...'
           label='Search'
+          className='searchBar'
         />
-        <div>
-          {departmentOptions.map((dep) => (
-            <button
-              name='department'
-              value={dep}
-              onClick={inputDepHandler}
-              key={dep}
-              data-unchoosen
-            >
-              {dep}
-            </button>
-          ))}
-        </div>
+      </div>
+      <div className='filtering-buttons'>
+        {departmentOptions.map((dep) => (
+          <button name='department' value={dep} onClick={inputDepHandler} key={dep} data-unchoosen>
+            {dep}
+          </button>
+        ))}
       </div>
       <PositionsList
         searchText={inputText}

@@ -74,6 +74,9 @@ const Input = ({
         value={inputState.value}
         onChange={changeHandler}
         onBlur={touchHandler}
+        className={`form-input ${
+          !inputState.isValid && inputState.isTouched && 'form-input--invalid'
+        }`}
       />
     ) : (
       <textarea
@@ -82,6 +85,9 @@ const Input = ({
         value={inputState.value}
         onChange={changeHandler}
         onBlur={touchHandler}
+        className={`form-textarea ${
+          !inputState.isValid && inputState.isTouched && 'form-textarea--invalid'
+        }`}
       />
     );
   return (
@@ -92,13 +98,19 @@ const Input = ({
     >
       <label htmlFor={id}>{label}</label>
       {element}
-      <p>
-        {(!inputState.isValid && inputState.isTouched && inputState.errorText) ||
-          (!inputState.isValid &&
-            !inputState.isTouched &&
-            isFormSubmitted &&
-            'Kötelezően kitöltendő mező, ne hagyd üresen!')}
-      </p>
+      <div>
+        <span
+          className={`form-errorMsg ${
+            !inputState.isValid && inputState.isTouched && 'form-errorMsg--invalid'
+          }`}
+        >
+          {(!inputState.isValid && inputState.isTouched && inputState.errorText) ||
+            (!inputState.isValid &&
+              !inputState.isTouched &&
+              isFormSubmitted &&
+              'Kötelezően kitöltendő mező, ne hagyd üresen!')}
+        </span>
+      </div>
     </div>
   );
 };

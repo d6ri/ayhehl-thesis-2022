@@ -1,0 +1,37 @@
+label {
+  display: block;
+  margin: 3vh;
+  font-weight: bold;
+}
+
+.form-input,
+.form-textarea,
+select {
+  border-radius: 5px;
+  border: 2px gainsboro solid;
+  padding: 1vh;
+  width: 50%;
+}
+
+.form-textarea {
+  width: 98%;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+select:focus {
+  outline: none;
+}
+
+.form-input--invalid {
+  border-color: crimson;
+}
+
+.form-errorMsg--invalid {
+  color: crimson;
+  display: inline-block;
+  background-color: rgba(220, 20, 60, 0.075);
+  padding: 2vh;
+  margin-top: 2vh;
+  border-radius: 5px;
+}

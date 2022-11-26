@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import PositionItem from "./PositionItem.js";
-import { RefinePositionSearch } from "../../shared/sharedFunctions.js";
-import { departmentOptions as departmentsQuery } from "../../shared/queries.js";
+import PositionItem from './PositionItem.js';
+import { RefinePositionSearch } from '../../shared/sharedFunctions.js';
+import { departmentOptions as departmentsQuery } from '../../shared/queries.js';
 
 const PositionsList = ({ searchText, filterDepartment, positionsList }) => {
   const departmentOptions = departmentsQuery();
@@ -10,7 +10,7 @@ const PositionsList = ({ searchText, filterDepartment, positionsList }) => {
     return <div>Nincsenek nyitott gyakornoki pozíciók.</div>;
   }
 
-  if (searchText === undefined) searchText = "";
+  if (searchText === undefined) searchText = '';
 
   if (filterDepartment === undefined) filterDepartment = departmentOptions;
 

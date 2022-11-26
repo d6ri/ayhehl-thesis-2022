@@ -1,13 +1,17 @@
-import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
-import { AuthContext } from "../../context/auth-context";
+import React, { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../../context/auth-context';
+
+import './NavLinks.css';
 
 const NavLinks = (props) => {
   const auth = useContext(AuthContext);
   return (
-    <ul>
+    <ul className='nav-links'>
       <li>
-        <NavLink to='/'>Főoldal</NavLink>
+        <NavLink to='/' end>
+          Főoldal
+        </NavLink>
       </li>
       <li>
         <NavLink to='/companies'>Cégek</NavLink>
