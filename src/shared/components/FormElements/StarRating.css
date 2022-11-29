@@ -3,3 +3,8 @@
   border: none;
   display: inline-block;
 }
+
+.star-value-text {
+  display: block;
+  padding: 1vh;
+}

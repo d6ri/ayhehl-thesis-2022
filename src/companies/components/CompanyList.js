@@ -1,7 +1,6 @@
 import React from 'react';
 
 import CompanyItem from './CompanyItem';
-import './CompanyList.css';
 
 const CompanyList = (props) => {
   if (props.companies.length === 0) {

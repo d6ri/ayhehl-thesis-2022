@@ -22,8 +22,10 @@ const PositionItem = ({ pid, cid, name, location, department }) => {
           </Link>
         </div>
         <div className='carditem__info'>
-          <FaRegBuilding />
-          <Link to={`/companies/${cid}`}>{company.name}</Link>
+          <p>
+            <FaRegBuilding />
+            <Link to={`/companies/${cid}`}>{company.name}</Link>
+          </p>
           <p>
             <MdOutlinePlace size='2.5vh' />
             {location}

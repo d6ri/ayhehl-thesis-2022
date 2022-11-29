@@ -1,6 +1,9 @@
 import React from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 
+import { IoChevronBackOutline } from 'react-icons/io5';
+
+import Card from '../../shared/components/UI/Card';
 import IndexImg from '../../shared/components/UI/IndexImg';
 import { POSLIST } from '../../testData/positions';
 import { COMPLIST } from '../../testData/companies';
@@ -14,43 +17,61 @@ const Position = () => {
 
   return (
     <div>
-      <button data-testid='backNavBtn' onClick={() => navigate(-1)}>
+      <button data-testid='backNavBtn' className='btn btn-back' onClick={() => navigate(-1)}>
+        <IoChevronBackOutline size='2vh' />
         Vissza
       </button>
-
-      <div>
-        <IndexImg
-          src={`/images/${position.cid}.jpg`}
-          alt={position.cid}
-          widht='150px'
-          height='150px'
-          id={`${position.cid}-img`}
-        />
-        <h1 data-testid='posName'>{position.name}</h1>
-      </div>
-      <div>
-        <h3>
-          Cég neve:
-          {<Link to={`/companies/${position.cid}`}> {company.name}</Link>}
-        </h3>
-        <h3>Terület: {position.department}</h3>
-        <h3>Munkavégzés helye: {position.location}</h3>
-        <h3>Szerződés típusa: {position.contract} idejű</h3>
-        <h3>
-          {position.duration === '' ? '' : `Munkaviszony időtartama: ${position.duration} hónap`}
-        </h3>
-        <h3>
-          Munkaórák:{' '}
-          {position.schedule.length > 1
-            ? `${position.schedule[0]}-${position.schedule[1]} `
-            : `${position.schedule} `}
-          óra / hét
-        </h3>
-      </div>
-      <div>
-        <h3>Leírás</h3>
-        <p>{position.description}</p>
-      </div>
+      <Card className='details'>
+        <div className='details-head'>
+          <IndexImg
+            src={`/images/${position.cid}.jpg`}
+            alt={position.cid}
+            widht='150px'
+            height='150px'
+            id={`${position.cid}-img`}
+          />
+          <h1 data-testid='posName'>{position.name}</h1>
+        </div>
+        <div className='details-pos'>
+          <table>
+            <tbody>
+              <tr>
+                <td>Cég neve</td>
+                <td>{<Link to={`/companies/${position.cid}`}> {company.name}</Link>}</td>
+              </tr>
+              <tr>
+                <td>Terület</td>
+                <td>{position.department}</td>
+              </tr>
+              <tr>
+                <td>Munkavégzés helye</td>
+                <td>{position.location}</td>
+              </tr>
+              <tr>
+                <td>Szerződés típusa</td>
+                <td>{position.contract} idejű</td>
+              </tr>
+              <tr>
+                <td>Munkaviszony időtartama</td>
+                <td>{position.duration} hónap</td>
+              </tr>
+              <tr>
+                <td>Munkaórák</td>
+                <td>
+                  {position.schedule.length > 1
+                    ? `${position.schedule[0]}-${position.schedule[1]} `
+                    : `${position.schedule} `}
+                  óra / hét
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div className='about-container'>
+          <span className='about-label'>A pozícióról</span>
+          <p>{position.description}</p>
+        </div>
+      </Card>
     </div>
   );
 };

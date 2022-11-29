@@ -1,7 +1,6 @@
 import React, { useReducer, useEffect } from 'react';
 
 import { validate } from '../../validators';
-import './Select.css';
 
 const inputReducer = (state, action) => {
   switch (action.type) {
@@ -63,7 +62,11 @@ const Select = ({
   }, [id, value, isValid, onInput]);
 
   return (
-    <div>
+    <div
+      className={`form-control ${
+        !inputState.isValid && inputState.isTouched && 'form-control--invalid'
+      }`}
+    >
       <label htmlFor={id}>{label}</label>
       <select
         name={id}
@@ -91,13 +94,23 @@ const Select = ({
           } else return null;
         })}
       </select>
-      <p>
-        {(!inputState.isValid && inputState.isTouched && inputState.errorText) ||
-          (!inputState.isValid &&
-            !inputState.isTouched &&
-            isFormSubmitted &&
-            'Kötelezően kitöltendő mező, ne hagyd üresen!')}
-      </p>
+      <div>
+        <span
+          className={`form-errorMsg ${
+            (!inputState.isValid && inputState.isTouched && 'form-errorMsg--invalid') ||
+            (!inputState.isValid &&
+              !inputState.isTouched &&
+              isFormSubmitted &&
+              'form-errorMsg--invalid')
+          }`}
+        >
+          {(!inputState.isValid && inputState.isTouched && inputState.errorText) ||
+            (!inputState.isValid &&
+              !inputState.isTouched &&
+              isFormSubmitted &&
+              'Kötelezően kitöltendő mező, ne hagyd üresen!')}
+        </span>
+      </div>
     </div>
   );
 };

@@ -1,9 +1,15 @@
 .card {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 6px;
-  padding: 1rem;
   overflow: hidden;
   background: white;
   min-width: 20rem;
   margin-bottom: 1vh;
+  padding: 1rem;
+}
+
+.details-card {
+  width: 70%;
+  margin: auto;
+  padding: 4vh;
 }

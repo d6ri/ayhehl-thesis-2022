@@ -62,34 +62,36 @@ const Auth = () => {
     }
   };
   return (
-    <Card className='auth'>
+    <div>
       <h2 className='pageTitle'>Bejelentkezés</h2>
-      <form onSubmit={formSubmitHandler} id='loginForm'>
-        <Input
-          id='username'
-          elementType='input'
-          type='text'
-          label='Felhasználónév'
-          placeholder='Felhasználónév'
-          validators={[VALIDATOR_EMPTY(), VALIDATOR_MINLEN(5)]}
-          onInput={inputHandler}
-          isFormSubmitted={formState.isSubmitted}
-        />
-        <Input
-          id='password'
-          elementType='input'
-          type='password'
-          label='Jelszó'
-          placeholder='Jelszó'
-          validators={[VALIDATOR_EMPTY(), VALIDATOR_MINLEN(5)]}
-          onInput={inputHandler}
-          isFormSubmitted={formState.isSubmitted}
-        />
-        <Button type='submit' disabled={!formState.isFormValid}>
-          Bejelentkezés
-        </Button>
-      </form>
-    </Card>
+      <Card className='auth'>
+        <form onSubmit={formSubmitHandler} id='loginForm'>
+          <Input
+            id='username'
+            elementType='input'
+            type='text'
+            label='Felhasználónév'
+            placeholder='Felhasználónév'
+            validators={[VALIDATOR_EMPTY(), VALIDATOR_MINLEN(5)]}
+            onInput={inputHandler}
+            isFormSubmitted={formState.isSubmitted}
+          />
+          <Input
+            id='password'
+            elementType='input'
+            type='password'
+            label='Jelszó'
+            placeholder='Jelszó'
+            validators={[VALIDATOR_EMPTY(), VALIDATOR_MINLEN(5)]}
+            onInput={inputHandler}
+            isFormSubmitted={formState.isSubmitted}
+          />
+          <Button type='submit' disabled={!formState.isFormValid}>
+            Bejelentkezés
+          </Button>
+        </form>
+      </Card>
+    </div>
   );
 };
 

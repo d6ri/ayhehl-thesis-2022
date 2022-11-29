@@ -1,0 +1,43 @@
+.details-head {
+  text-align: center;
+}
+
+.details-head > h1 {
+  display: inline-block;
+  background-color: #015c92;
+  color: white;
+  padding: 1vh;
+}
+
+.details-pos table {
+  margin: auto;
+  margin-bottom: 2vh;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.details-pos table tr td {
+  padding: 1vh 2vh;
+}
+
+.details-pos table tr td:nth-of-type(1) {
+  border-right: 1px solid #015c92;
+  padding-right: 1em;
+  text-align: right;
+  font-weight: bold;
+  color: #015c92;
+  width: 50%;
+}
+
+.about-label {
+  display: block;
+  font-weight: bold;
+  padding-top: 2vh;
+  color: #015c92;
+}
+
+.about-container {
+  background-color: rgba(220, 220, 220, 0.221);
+  padding: 1vh 2.5vh;
+  border-radius: 5px;
+}

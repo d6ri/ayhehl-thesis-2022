@@ -1,0 +1,42 @@
+.tabs {
+  background-color: white;
+}
+
+.tabs > ul {
+  background-color: white;
+  margin-top: 7vh;
+  margin-bottom: 6vh;
+}
+
+.tab {
+  background-color: white;
+  padding: 1em;
+  margin: 0;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 1px solid lightgrey;
+  font-weight: 600;
+}
+
+.tab:hover {
+  cursor: pointer;
+}
+
+.tab-active {
+  color: #015c92;
+  border: 1px solid lightgrey;
+  border-bottom: none;
+}
+
+.tab-subtitle {
+  text-align: center;
+  color: #015c92;
+  font-size: 1.2em;
+}
+
+.tab-item-content {
+  display: flex;
+  text-align: left;
+  margin: auto;
+  width: 40%;
+  margin-bottom: 1vh;
+}

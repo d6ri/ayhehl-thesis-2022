@@ -1,7 +1,19 @@
-label {
+.form-control {
+  margin-bottom: 2vh;
+  padding: 2vh;
+  border-radius: 5px;
+}
+
+#addNewReviewForm > .form-control {
+  background-color: rgba(245, 245, 245, 0.555);
+}
+
+.form-control > label,
+legend {
   display: block;
-  margin: 3vh;
+  margin-bottom: 1vh;
   font-weight: bold;
+  color: rgb(35, 35, 35);
 }
 
 .form-input,
@@ -11,6 +23,12 @@ select {
   border: 2px gainsboro solid;
   padding: 1vh;
   width: 50%;
+}
+
+.form-control > fieldset {
+  border: none 0;
+  margin: 0;
+  padding: 1vh 0;
 }
 
 .form-textarea {
@@ -34,4 +52,12 @@ select:focus {
   padding: 2vh;
   margin-top: 2vh;
   border-radius: 5px;
+}
+
+.radioinput > div {
+  padding-bottom: 1vh;
+}
+
+.radioinput > div > label {
+  padding: 1vh;
 }

@@ -75,7 +75,8 @@ const Input = ({
         onChange={changeHandler}
         onBlur={touchHandler}
         className={`form-input ${
-          !inputState.isValid && inputState.isTouched && 'form-input--invalid'
+          (!inputState.isValid && inputState.isTouched && 'form-input--invalid') ||
+          (!inputState.isValid && !inputState.isTouched && isFormSubmitted && 'form-input--invalid')
         }`}
       />
     ) : (
@@ -101,7 +102,11 @@ const Input = ({
       <div>
         <span
           className={`form-errorMsg ${
-            !inputState.isValid && inputState.isTouched && 'form-errorMsg--invalid'
+            (!inputState.isValid && inputState.isTouched && 'form-errorMsg--invalid') ||
+            (!inputState.isValid &&
+              !inputState.isTouched &&
+              isFormSubmitted &&
+              'form-errorMsg--invalid')
           }`}
         >
           {(!inputState.isValid && inputState.isTouched && inputState.errorText) ||

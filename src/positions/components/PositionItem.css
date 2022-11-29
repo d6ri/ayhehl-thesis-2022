@@ -21,6 +21,11 @@ li {
   text-decoration-color: #015c92;
 }
 
+.carditem__head > a > h2 {
+  margin: 1vh;
+  margin-top: 2vh;
+}
+
 .carditem__info {
   text-align: left;
 }
@@ -34,7 +39,7 @@ li {
 }
 
 .carditem__info a:hover {
-  text-decoration-color: #015c92;
+  text-decoration-color: black;
 }
 
 .carditem__info svg {
